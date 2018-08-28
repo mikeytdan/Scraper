@@ -19,9 +19,10 @@ var app = express();
 app.engine('.hbs', expressHbs({
   defaultLayout: 'layout',
   extname: '.hbs',
-  layoutsDir: './views/layouts',
-  partialsDir: './views/partials'
+  layoutsDir: path.join(__dirname, '/views/layouts'),
+  partialsDir: path.join(__dirname, '/views/partials')
 }));
+app.set('views', __dirname + '/views');
 app.set('view engine', '.hbs');
 
 app.use(logger('dev'));
@@ -29,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public/')));
 
 app.use('/', indexRouter);
 
