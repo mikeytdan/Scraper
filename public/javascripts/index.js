@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/save",
+            url: "save",
             data: article
         }).then(function (data) {
             console.log("Repsonse: " + JSON.stringify(data, 0, 2));
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/deleteArticle",
+            url: "deleteArticle",
             data: article
         }).then(function (data) {
             window.location = window.location;
@@ -51,7 +51,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/addComment",
+            url: "addComment",
             data: comment
         }).then(function (data) {
             window.location = window.location;
@@ -74,7 +74,7 @@ $(document).ready(function () {
         // return;
         $.ajax({
             method: "POST",
-            url: "/deleteComment",
+            url: "deleteComment",
             data: comment
         }).then(function (data) {
             window.location = window.location;
