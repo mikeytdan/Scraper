@@ -1,0 +1,26 @@
+<h2>{{headline}}</h2>
+{{summary}}
+<br>
+Hi: {{_id}}
+<br>
+<a href='{{url}}'>source</a>
+{{#if showSave}}
+<button class="btn-article-save" data-title='{{headline}}' data-content='{{summary}}' data-link='{{url}}'>Save</button>
+{{else}}
+<button class="btn-article-delete" data-title='{{headline}}' data-content='{{summary}}' data-link='{{url}}' data-id='{{_id}}'>Delete</button>
+<form>
+  Add Comment: <input type="text" name="add-comment">
+  <input class="btn-add" type="submit" value="Add" data-id='{{_id}}'>
+</form>
+<br>
+<b>Comments:</b>
+<br>
+{{#each comments}} 
+---------<br>
+{{text}}
+<button class="btn-comment-delete" data-article-id='{{../_id}}' data-comment-id='{{_id}}'>Remove</button>
+<br>
+---------<br>
+ {{/each}}
+{{/if}}
+<br>
